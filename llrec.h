@@ -82,7 +82,40 @@ Node* llfilter(Node* head, Comp pred)
     // Provide your implementation below
     //*********************************************
 
+  //the below is tail recursion attempt
 
+  // if (head == NULL) {
+  //   return;
+  // }
+
+  // if (pred(head.val)){
+  //   llfilter(head->next, pred);
+  // }
+  // else{
+
+  //   llfilter(head->next, pred);
+  // }
+
+
+    // head recursion attempt
+
+    if (head->next == NULL){          //base case here
+        return head;
+      }
+
+    if (head != NULL){
+     Node* temp = llfilter(head->next, pred);       //start recursion first so we can get to the back
+
+      if (pred(head->val)){
+        head->next = temp;
+        return temp;        //returning temp regardless allows us to remember where the last un-filtered node was so we can link it
+      }
+      else{
+        delete head;    //delete head each iteration so head is empty each 
+        return temp;
+      }
+
+    }
 }
 
 #endif

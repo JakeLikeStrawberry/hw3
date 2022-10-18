@@ -86,8 +86,22 @@ int main(int argc, char* argv[])
     print(head);
 
     // Test out your linked list code
+    int v = 3;
+    int p = 2;
+    Node* smaller = new Node(v, head);
+    Node* larger = new Node(p, head);
+    int pivot = 9;
+    llpivot(head, smaller, larger, pivot);
+    print(smaller);
+    print (larger);
+    print (head);
+    dealloc(head);
+    dealloc(smaller);
+    dealloc(larger);
 
-
+    // //testing llfilter
+    // Comp
+    // cout << llfilter(head, )
 
     
     return 0;
